@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#07110b" />
+  <title>Agenda Inteligente</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">AI</div>
+        <div class="brandText">
+          <div class="brandName">AGENDA INTELIGENTE</div>
+          <div class="brandSub">agenda • prontuário • impressos</div>
+        </div>
+      </div>
+
+      <button class="navBtn active" data-view="agenda">📅 <span>Agenda</span></button>
+      <button class="navBtn" data-view="patients">👤 <span>Pacientes</span></button>
+      <button class="navBtn" data-view="chart">🗂️ <span>Ficha Clínica</span></button>
+      <button class="navBtn" data-view="docs">🧾 <span>Impressos</span></button>
+      <button class="navBtn" data-view="notes">✍️ <span>Texto Livre</span></button>
+      <button class="navBtn" data-view="settings">⚙️ <span>Configurações</span></button>
+
+      <div class="sidebarFooter">
+        <div class="pill" id="statusPill">OFFLINE</div>
+        <div class="pill subtle" id="autosavePill">Autosave</div>
+
+        <button class="btn ghost" id="exportBtn" title="Exportar backup .json">⬇️ Backup</button>
+        <button class="btn ghost" id="importBtn" title="Importar backup .json">⬆️ Restaurar</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden />
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="iconBtn" id="menuBtn" title="Menu">☰</button>
+
+        <div class="topTitle">
+          <div class="h1" id="viewTitle">Agenda</div>
+          <div class="h2" id="viewSubtitle">organização do dia</div>
+        </div>
+
+        <div class="topActions">
+          <div class="searchBox">
+            <span>🔎</span>
+            <input id="globalSearch" placeholder="Buscar paciente, data, evento..." />
+          </div>
+          <button class="btn" id="printQuickBtn" title="Imprimir (verde, bordas, cantos arredondados)">Imprimir</button>
+        </div>
+      </header>
+
+      <section class="content" id="content"></section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
